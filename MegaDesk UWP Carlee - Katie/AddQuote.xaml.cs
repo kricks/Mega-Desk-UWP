@@ -27,6 +27,22 @@ namespace MegaDesk_UWP_Carlee___Katie
         public AddQuote()
         {
             this.InitializeComponent();
+
+            List<Desk.Material> materials = new List<Desk.Material>();
+
+            foreach (Desk.Material deskMaterial in Enum.GetValues(typeof(Desk.Material)))
+                materials.Add(deskMaterial);
+
+            ComBoxMaterial.ItemsSource = materials;
+
+            List<string> shipping = new List<string>();
+
+            shipping.Add("Oak");
+            shipping.Add("Pine");
+            shipping.Add("Laminate");
+            shipping.Add("Rosewood");
+            shipping.Add("Veneer");
+            ComBoxShipping.ItemsSource = shipping;
         }
 
 

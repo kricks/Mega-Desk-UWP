@@ -16,13 +16,7 @@
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter number of drawers :" VerticalAlignment="Top" Margin="525,257,0,0" FontSize="20" IsReadOnly="True"/>
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter Number of Shipping Days :" VerticalAlignment="Top" Margin="489,372,0,0" FontSize="20" IsReadOnly="True"/>
         <StackPanel>
-        <ComboBox x:Name="ComBoxMaterial" HorizontalAlignment="Left" Margin="821,137,0,0" VerticalAlignment="Top" Width="120" PlaceholderText="" SelectionChanged="ComBoxMaterial_SelectionChanged">
-            <ComboBoxItem Content="Laminate"/>
-            <ComboBoxItem Content="Oak"/>
-            <ComboBoxItem Content="Pine"/>
-            <ComboBoxItem Content="Rosewood"/>
-                <ComboBoxItem Content="Veneer"/>
-            </ComboBox>
+        <ComboBox x:Name="ComBoxMaterial" HorizontalAlignment="Left" Margin="821,137,0,0" VerticalAlignment="Top" Width="120" PlaceholderText="" SelectionChanged="ComBoxMaterial_SelectionChanged"/>
             <TextBlock x:Name="ComboResult" Margin="821,30,83,0" />
         </StackPanel>
         <ComboBox x:Name="ComBoxNumberDrawers" HorizontalAlignment="Left" Margin="821,257,0,0" VerticalAlignment="Top" Width="120">
@@ -35,12 +29,7 @@
             <ComboBoxItem Content="6"/>
             <ComboBoxItem Content="7"/>
         </ComboBox>
-        <ComboBox x:Name="ComBoxShipping" HorizontalAlignment="Left" Margin="821,372,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="3 Days"/>
-            <ComboBoxItem Content="5 Days"/>
-            <ComboBoxItem Content="7 Days"/>
-            <ComboBoxItem Content="14 Days - Normal"/>
-        </ComboBox>
+        <ComboBox x:Name="ComBoxShipping" HorizontalAlignment="Left" Margin="821,372,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtBoxName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.713" Margin="321,144,0,0" Width="120"/>
         <Button x:Name="butDisplay" Content="Save &amp; Display Quote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="628,531,0,0" FontSize="24" Click="butDisplay_Click"/>
         <Button x:Name="butBackMenu" Content="Go Back to Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="177,531,0,0" FontSize="24" Click="butBackMenu_Click"/>
