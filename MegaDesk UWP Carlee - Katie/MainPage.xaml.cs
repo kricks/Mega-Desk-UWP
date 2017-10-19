@@ -30,19 +30,19 @@ namespace MegaDesk_UWP_Carlee___Katie
         // add quote button
         private void butAddQuote_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(AddQuote));
         }
 
         // view quotes button
         private void butViewAllQuotes_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(ViewAllQuotes));
         }
 
         // search quotes button
         private void butSearchQuotes_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(SearchAllQuotes));
         }
 
         //exit button

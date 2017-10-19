@@ -8,6 +8,31 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Add Quote" VerticalAlignment="Top" Margin="366,32,0,0" FontSize="48"/>
+        <ComboBox x:Name="ComBoxWidth" HorizontalAlignment="Left" Margin="321,264,0,0" VerticalAlignment="Top" Width="120">
+            <TextBox Height="100" TextWrapping="Wrap" Text="TextBox" Width="100"/>
+        </ComboBox>
+        <TextBox x:Name="TextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter your name :" VerticalAlignment="Top" Margin="92,144,0,0" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter width :" VerticalAlignment="Top" Margin="92,264,0,0" FontSize="20" Width="176"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter depth :" VerticalAlignment="Top" Margin="92,372,0,0" FontSize="20" Width="176"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter surface material" VerticalAlignment="Top" Margin="542,137,0,0" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter number of drawers :" VerticalAlignment="Top" Margin="525,257,0,0" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter Number of Shipping Days :" VerticalAlignment="Top" Margin="489,372,0,0" FontSize="20"/>
+        <ComboBox x:Name="ComBoxDepth" HorizontalAlignment="Left" Margin="321,372,0,0" VerticalAlignment="Top" Width="120">
+            <TextBox Height="100" TextWrapping="Wrap" Text="TextBox" Width="100"/>
+        </ComboBox>
+        <ComboBox x:Name="ComBoxMaterial" HorizontalAlignment="Left" Margin="821,137,0,0" VerticalAlignment="Top" Width="120">
+            <TextBox Height="100" TextWrapping="Wrap" Text="TextBox" Width="100"/>
+        </ComboBox>
+        <ComboBox x:Name="ComBoxNumberDrawers" HorizontalAlignment="Left" Margin="821,257,0,0" VerticalAlignment="Top" Width="120">
+            <TextBox Height="100" TextWrapping="Wrap" Text="TextBox" Width="100"/>
+        </ComboBox>
+        <ComboBox x:Name="ComBoxShipping" HorizontalAlignment="Left" Margin="821,372,0,0" VerticalAlignment="Top" Width="120">
+            <TextBox Height="100" TextWrapping="Wrap" Text="TextBox" Width="100"/>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.713" Margin="321,144,0,0" Width="120"/>
+        <Button x:Name="butDisplay" Content="Save &amp; Display Quote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="628,531,0,0" FontSize="24" Click="butDisplay_Click"/>
+        <Button x:Name="butBackMenu" Content="Go Back to Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="177,531,0,0" FontSize="24" Click="butBackMenu_Click"/>
 
     </Grid>
 </Page>

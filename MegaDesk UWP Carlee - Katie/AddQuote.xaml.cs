@@ -26,5 +26,17 @@ namespace MegaDesk_UWP_Carlee___Katie
         {
             this.InitializeComponent();
         }
+
+
+        // but save and display quote
+        private void butDisplay_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(DisplayQuote) /*put object parameters in here*/);
+        }
+
+        private void butBackMenu_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }
