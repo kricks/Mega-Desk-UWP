@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="butAddQuote" Content="Add Quote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,200,0,0" Height="59" Width="322" FontSize="36" Click="butAddQuote_Click"/>
+        <Button x:Name="butViewAllQuotes" Content="View All Quotes" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,311,0,0" Height="58" Width="322" FontSize="36" Click="butViewAllQuotes_Click"/>
+        <Button x:Name="butSearchQuotes" Content="Search Quotes" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,425,0,0" Height="56" Width="322" FontSize="36" Click="butSearchQuotes_Click"/>
+        <Button x:Name="butExit" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,530,0,0" Height="59" Width="322" FontSize="36" Click="butExit_Click"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Mega Desk" VerticalAlignment="Top" Margin="382,36,0,0" FontSize="48"/>
 
     </Grid>
 </Page>

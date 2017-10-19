@@ -26,5 +26,29 @@ namespace MegaDesk_UWP_Carlee___Katie
         {
             this.InitializeComponent();
         }
+
+        // add quote button
+        private void butAddQuote_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // view quotes button
+        private void butViewAllQuotes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // search quotes button
+        private void butSearchQuotes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //exit button
+        private void butExit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
