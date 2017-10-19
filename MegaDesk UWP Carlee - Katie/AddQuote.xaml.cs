@@ -23,29 +23,6 @@ namespace MegaDesk_UWP_Carlee___Katie
     public sealed partial class AddQuote : Page
     {
 
-        public string CustomerName { get; set; }
-        public double DeskWidth { get; set; }
-        public double Depth { get; set; }
-        public int NumDrawer { get; set; }
-        public string SurfaceMaterial { get; set; }
-        public int ShippingDays { get; set; }
-
-        enum Material
-        {
-            Oak,
-            Laminate,
-            Pine,
-            Rosewood,
-            Veneer
-        }
-
-        enum RushDays
-        {
-            Days3,
-            Days5,
-            Days7,
-            NormalDays14
-        }
 
         public AddQuote()
         {
@@ -56,9 +33,50 @@ namespace MegaDesk_UWP_Carlee___Katie
         // but save and display quote
         private void butDisplay_Click(object sender, RoutedEventArgs e)
         {
-            AddQuote addQuote = new AddQuote();
+            Desk desk = new Desk();
 
-            this.Frame.Navigate(typeof(DisplayQuote), addQuote);
+            switch (ComBoxMaterial.DataContext)
+            {
+                case "Oak":
+                    desk.SurfaceMaterial = Desk.Material.Oak;
+                    break;
+                case "Laminate":
+                    desk.SurfaceMaterial = Desk.Material.Laminate;
+                    break;
+                case "Pine":
+                    desk.SurfaceMaterial = Desk.Material.Pine;
+                    break;
+                case "Rosewood":
+                    desk.SurfaceMaterial = Desk.Material.Rosewood;
+                    break;
+                case "Veneer":
+                    desk.SurfaceMaterial = Desk.Material.Veneer;
+                    break;
+            }
+
+            DeskQuote quote = new DeskQuote();
+
+            quote.CustomerName = txtBoxName.Text;
+            quote.desk = desk;
+
+            switch (ComBoxShipping.DataContext)
+            {
+                case "Three Days":
+                    quote.ShippingType = DeskQuote.Shipping.Rush3Days;
+                    break;
+                case "Five Days":
+                    quote.ShippingType = DeskQuote.Shipping.Rush5Days;
+                    break;
+                case "Seven Days":
+                    quote.ShippingType = DeskQuote.Shipping.Rush7Days;
+                    break;
+                case "Normal - Fourteen Days":
+                    quote.ShippingType = DeskQuote.Shipping.Normal14Days;
+                    break;
+            }
+
+            // takes this frame and opens up Display Quote frame and needs to pass parameter addQuote to Display quote frame
+           this.Frame.Navigate(typeof(DisplayQuote), quote);
         }
 
 

@@ -41,11 +41,11 @@
             <ComboBoxItem Content="7 Days"/>
             <ComboBoxItem Content="14 Days - Normal"/>
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.713" Margin="321,144,0,0" Width="120"/>
+        <TextBox x:Name="txtBoxName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.713" Margin="321,144,0,0" Width="120"/>
         <Button x:Name="butDisplay" Content="Save &amp; Display Quote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="628,531,0,0" FontSize="24" Click="butDisplay_Click"/>
         <Button x:Name="butBackMenu" Content="Go Back to Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="177,531,0,0" FontSize="24" Click="butBackMenu_Click"/>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,264,0,0" Width="120"/>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,372,0,0" Width="120"/>
+        <TextBox x:Name="txtBoxWidth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,264,0,0" Width="120"/>
+        <TextBox x:Name="txtBoxDepth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,372,0,0" Width="120"/>
 
     </Grid>
 </Page>

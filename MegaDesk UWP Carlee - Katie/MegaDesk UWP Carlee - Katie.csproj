@@ -98,6 +98,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Desk.cs" />
+    <Compile Include="DeskQuote.cs" />
     <Compile Include="DisplayQuote.xaml.cs">
       <DependentUpon>DisplayQuote.xaml</DependentUpon>
     </Compile>
