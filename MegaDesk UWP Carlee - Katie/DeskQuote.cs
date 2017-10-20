@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,13 @@ namespace MegaDesk_UWP_Carlee___Katie
         //enums
         public enum Shipping
         {
+            [Display(Name = "Three Days")]
             Rush3Days,
+            [Display(Name = "Five Days")]
             Rush5Days,
+            [Display(Name = "Seven Days")]
             Rush7Days,
+            [Display(Name = "Five Days")]
             Normal14Days
         }
 

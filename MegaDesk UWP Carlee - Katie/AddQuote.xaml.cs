@@ -28,6 +28,7 @@ namespace MegaDesk_UWP_Carlee___Katie
         {
             this.InitializeComponent();
 
+            // material
             List<Desk.Material> materials = new List<Desk.Material>();
 
             foreach (Desk.Material deskMaterial in Enum.GetValues(typeof(Desk.Material)))
@@ -35,13 +36,12 @@ namespace MegaDesk_UWP_Carlee___Katie
 
             ComBoxMaterial.ItemsSource = materials;
 
-            List<string> shipping = new List<string>();
+            // shipping 
+            List<DeskQuote.Shipping> shipping = new List<DeskQuote.Shipping>();
 
-            shipping.Add("Oak");
-            shipping.Add("Pine");
-            shipping.Add("Laminate");
-            shipping.Add("Rosewood");
-            shipping.Add("Veneer");
+            foreach (DeskQuote.Shipping rushDays in Enum.GetValues(typeof(DeskQuote.Shipping)))
+                shipping.Add(rushDays);
+
             ComBoxShipping.ItemsSource = shipping;
         }
 
