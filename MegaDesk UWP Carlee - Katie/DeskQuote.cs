@@ -27,6 +27,6 @@ namespace MegaDesk_UWP_Carlee___Katie
         public string CustomerName { get; set; }
         public DateTime QuoteDate { get; set; }
         public Shipping ShippingType { get; set; }
-        public decimal QuoteAmount { get; set; }
+        public float QuoteAmount { get; set; }
     }
 }

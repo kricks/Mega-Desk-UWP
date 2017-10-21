@@ -31,11 +31,12 @@ namespace MegaDesk_UWP_Carlee___Katie
 
 
         //properties of desk
-        public double DeskWidth { get; set; }
-        public double DeskDepth { get; set; }
+        public float DeskWidth { get; set; }
+        public float DeskDepth { get; set; }
         public int NumDrawer { get; set; }
         public Material SurfaceMaterial { get; set; }
-        public int ShippingDays { get; set; }
+        // This is also in DeskQuote, so I removed it here.
+        //public int ShippingDays { get; set; }
 
        public enum Material
         {

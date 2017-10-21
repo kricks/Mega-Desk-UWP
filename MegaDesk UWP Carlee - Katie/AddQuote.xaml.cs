@@ -23,6 +23,8 @@ namespace MegaDesk_UWP_Carlee___Katie
     public sealed partial class AddQuote : Page
     {
 
+        static int basePrice = 200;
+        static int costPerDrawer = 50;
 
         public AddQuote()
         {
@@ -45,11 +47,22 @@ namespace MegaDesk_UWP_Carlee___Katie
             ComBoxShipping.ItemsSource = shipping;
         }
 
+        Desk desk = new Desk();
 
         // but save and display quote
         private void butDisplay_Click(object sender, RoutedEventArgs e)
         {
-            Desk desk = new Desk();
+            // Instatiate desk object and set values to user input
+            //Desk desk = new Desk();
+            desk.DeskWidth = double.Parse(txtBoxWidth.Text);
+            desk.DeskDepth = double.Parse(txtBoxDepth.Text);
+            //desk.NumDrawer = (sender as ComboBox).SelectedItem as string;
+
+            // Instantiate deskQuote and set values to user input
+            DeskQuote quote = new DeskQuote();
+            quote.CustomerName = txtBoxName.Text;
+            quote.desk = desk;
+            quote.QuoteDate = DateTime.Now;
 
             switch (ComBoxMaterial.DataContext)
             {
@@ -69,12 +82,7 @@ namespace MegaDesk_UWP_Carlee___Katie
                     desk.SurfaceMaterial = Desk.Material.Veneer;
                     break;
             }
-
-            DeskQuote quote = new DeskQuote();
-
-            quote.CustomerName = txtBoxName.Text;
-            quote.desk = desk;
-
+                        
             switch (ComBoxShipping.DataContext)
             {
                 case "Three Days":
@@ -91,44 +99,172 @@ namespace MegaDesk_UWP_Carlee___Katie
                     break;
             }
 
+            int drawerPrice = getDrawerPrice(desk.NumDrawer);
+            float surfaceArea = getSurfaceArea(desk.DeskWidth, desk.DeskDepth);
+            float surfaceAreaPrice = getSurfaceAreaPrice(surfaceArea);
+            int surfaceMaterialPrice = getSurfaceMaterialPrice(desk.SurfaceMaterial.ToString());
+            int orderPrice = getOrderPrice(surfaceArea, quote.ShippingType.ToString());
+            quote.QuoteAmount = getQuotePrice(drawerPrice,
+                surfaceAreaPrice,
+                surfaceMaterialPrice,
+                orderPrice);
+
             // takes this frame and opens up Display Quote frame and needs to pass parameter addQuote to Display quote frame
-           this.Frame.Navigate(typeof(DisplayQuote), quote);
+            this.Frame.Navigate(typeof(DisplayQuote), desk);
+
         }
 
-
-        // go back to menu button
-        private void butBackMenu_Click(object sender, RoutedEventArgs e)
+        // Calculate cost of drawers
+        public int getDrawerPrice(int numberOfDrawers)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            int cost = (costPerDrawer * numberOfDrawers);
+            return cost;
         }
 
-        // widht combo box
-        private void ComBoxWidth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        // Get surface area.
+        public float getSurfaceArea(float width, float depth)
         {
+            float area = (width * depth);
+            return area;
+        }
 
-            /* tryto grab data
-            var container = sender as ComboBox;
-            var selected = container.SelectedItem as ComboBoxItem;
-
-            if (selected != null)
+        // Calculate cost of surface area.
+        public float getSurfaceAreaPrice(float surfaceArea)
+        {
+            float price;
+            if (surfaceArea <= 1000)
             {
-                var width = selected.ComBoxWidth as Int32; //(string or a class)
-                if (width != null)
-                {
-                    // what do i put here?
-                }
+                price = 0;
             }
-            */
+            else
+            {
+                price = (surfaceArea - 1000);
+            }
+            return price;
+        }
+
+        // Calculates cost of material.
+        public int getSurfaceMaterialPrice(string material)
+        {
+            int cost;
+            switch (material)
+            {
+                case "Oak":
+                    cost = 200;
+                    return cost;
+                case "Laminate":
+                    cost = 100;
+                    return cost;
+                case "Pine":
+                    cost = 50;
+                    return cost;
+                case "Rosewood":
+                    cost = 300;
+                    return cost;
+                case "Veneer":
+                    cost = 125;
+                    return cost;
+                default:
+                    cost = 0;
+                    return cost;
+            }
+        }
+
+        // Calculate order type cost
+        public int getOrderPrice(double surfaceArea, string orderType)
+        {
+            int cost;
+
+            switch (orderType)
+            {
+                case "3 Day":
+                    if (surfaceArea < 1000)
+                    {
+                        cost = 60;
+                        return cost;
+                    }
+                    else if (surfaceArea >= 1000 && surfaceArea <= 2000)
+                    {
+                        cost = 70;
+                        return cost;
+                    }
+                    else
+                    {
+                        cost = 80;
+                        return cost;
+                    }
+                case "5 Day":
+                    if (surfaceArea < 1000)
+                    {
+                        cost = 40;
+                        return cost;
+                    }
+                    else if (surfaceArea >= 1000 && surfaceArea <= 2000)
+                    {
+                        cost = 50;
+                        return cost;
+                    }
+                    else
+                    {
+                        cost = 60;
+                        return cost;
+                    }
+                case "7 Day":
+                    if (surfaceArea < 1000)
+                    {
+                        cost = 30;
+                        return cost;
+                    }
+                    else if (surfaceArea >= 1000 && surfaceArea <= 2000)
+                    {
+                        cost = 35;
+                        return cost;
+                    }
+                    else
+                    {
+                        cost = 40;
+                        return cost;
+                    }
+                default:
+                    cost = 0;
+                    return cost;
+            }
+        }
+
+            public float getQuotePrice(int drawerPrice,
+                float surfaceAreaPrice,
+                int surfaceMaterialPrice,
+                int orderPrice)
+            {
+                float quotePrice = (drawerPrice
+                    + surfaceAreaPrice
+                    + surfaceMaterialPrice
+                    + orderPrice
+                    + basePrice);
+                return quotePrice;
+            }
+
+            // widht combo box
+            private void ComBoxWidth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string width = (sender as ComboBox).SelectedItem as string;
+            desk.DeskWidth = int.Parse(width);
 
         }
 
         private void ComBoxMaterial_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ComboResult == null) return;
+            //if (ComboResult == null) return;
 
-            var combo = (ComboBox)sender;
-            var item = (ComboBoxItem)combo.SelectedItem;
-            ComboResult.Text = item.Content.ToString();
+            //var combo = (ComboBox)sender;
+            //var item = (ComboBoxItem)combo.SelectedItem;
+            //ComboResult.Text = item.Content.ToString();
+        }
+
+        // go back to menu button
+        private void butBackMenu_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

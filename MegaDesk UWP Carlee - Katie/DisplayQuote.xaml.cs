@@ -25,6 +25,23 @@ namespace MegaDesk_UWP_Carlee___Katie
         public DisplayQuote()
         {
             this.InitializeComponent();
+
+            
         }
+
+        void setValues(Desk desk, DeskQuote quote)
+        {
+
+            nameBox.Text = quote.CustomerName;
+            widthBox.Text = desk.DeskWidth.ToString();
+            depthBox.Text = desk.DeskDepth.ToString();
+            drawersBox.Text = desk.NumDrawer.ToString();
+            materialBox.Text = desk.SurfaceMaterial.ToString();
+            shippingBox.Text = quote.ShippingType.ToString();
+            priceBox.Text = quote.QuoteAmount.ToString();
+
+        }
+
+
     }
 }
