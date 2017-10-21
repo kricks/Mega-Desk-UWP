@@ -7,26 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
- 
+
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Width:" VerticalAlignment="Top" Margin="407,222,0,0" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Depth:" VerticalAlignment="Top" Margin="405,267,0,0" FontSize="20"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="484,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyUp="widthBox_KeyUp" RenderTransformOrigin="-0.744,2.525" Width="143"/>
-        <TextBox x:Name="depthBox" HorizontalAlignment="Left" Margin="484,267,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyUp="heightBox_KeyUp" Width="143"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="484,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-0.744,2.525" Width="143" IsReadOnly="True"/>
+        <TextBox x:Name="depthBox" HorizontalAlignment="Left" Margin="484,267,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143" IsReadOnly="True"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Drawers:" VerticalAlignment="Top" Margin="389,310,0,0" FontSize="20"/>
         <TextBlock x:Name="widthWarning" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="640,230,0,0" FontStyle="Italic"/>
         <TextBlock x:Name="heightWarning" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="640,297,0,0" FontStyle="Italic"/>
-        <Button x:Name="submitButton" Content="Home" HorizontalAlignment="Left" Margin="475,506,0,0" VerticalAlignment="Top" Click="submitButton_Click" FontSize="22"/>
+        <Button x:Name="submitButton" Content="Home" HorizontalAlignment="Left" Margin="475,506,0,0" VerticalAlignment="Top" FontSize="22"/>
         <TextBlock x:Name="pageTitle" HorizontalAlignment="Center" Margin="392,57,382,0" TextWrapping="Wrap" Text="Your Quote" VerticalAlignment="Top" FontSize="48" Width="250"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Material:" VerticalAlignment="Top" Margin="387,355,0,0" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Margin="408,179,0,0" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Shipping:" VerticalAlignment="Top" Margin="381,399,0,0" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Price:" VerticalAlignment="Top" Margin="417,441,0,0" FontSize="20"/>
-        <TextBox x:Name="widthBox" HorizontalAlignment="Left" Margin="484,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyUp="widthBox_KeyUp" RenderTransformOrigin="-0.744,2.525" Width="143"/>
-        <TextBox x:Name="drawersBox" HorizontalAlignment="Left" Margin="484,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyUp="heightBox_KeyUp" Width="143"/>
-        <TextBox x:Name="materialBox" HorizontalAlignment="Left" Margin="484,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyUp="heightBox_KeyUp" Width="143"/>
-        <TextBox x:Name="shippingBox" HorizontalAlignment="Left" Margin="484,399,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyUp="heightBox_KeyUp" Width="143"/>
-        <TextBox x:Name="priceBox" HorizontalAlignment="Left" Margin="484,441,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" KeyUp="heightBox_KeyUp" Width="143"/>
+        <TextBox x:Name="widthBox" HorizontalAlignment="Left" Margin="484,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-0.744,2.525" Width="143" IsReadOnly="True"/>
+        <TextBox x:Name="drawersBox" HorizontalAlignment="Left" Margin="484,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143" IsReadOnly="True"/>
+        <TextBox x:Name="materialBox" HorizontalAlignment="Left" Margin="484,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143" IsReadOnly="True"/>
+        <TextBox x:Name="shippingBox" HorizontalAlignment="Left" Margin="484,399,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143" IsReadOnly="True"/>
+        <TextBox x:Name="priceBox" HorizontalAlignment="Left" Margin="484,441,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143" IsReadOnly="True"/>
     </Grid>
 </Page>

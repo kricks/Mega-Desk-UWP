@@ -54,8 +54,8 @@ namespace MegaDesk_UWP_Carlee___Katie
         {
             // Instatiate desk object and set values to user input
             //Desk desk = new Desk();
-            desk.DeskWidth = double.Parse(txtBoxWidth.Text);
-            desk.DeskDepth = double.Parse(txtBoxDepth.Text);
+            desk.DeskWidth = float.Parse(txtBoxWidth.Text);
+            desk.DeskDepth = float.Parse(txtBoxDepth.Text);
             //desk.NumDrawer = (sender as ComboBox).SelectedItem as string;
 
             // Instantiate deskQuote and set values to user input

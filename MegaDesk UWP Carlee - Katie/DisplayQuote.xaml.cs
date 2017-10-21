@@ -32,13 +32,28 @@ namespace MegaDesk_UWP_Carlee___Katie
         void setValues(Desk desk, DeskQuote quote)
         {
 
-            nameBox.Text = quote.CustomerName;
+            //nameBox.Text = quote.CustomerName;
             widthBox.Text = desk.DeskWidth.ToString();
             depthBox.Text = desk.DeskDepth.ToString();
             drawersBox.Text = desk.NumDrawer.ToString();
             materialBox.Text = desk.SurfaceMaterial.ToString();
-            shippingBox.Text = quote.ShippingType.ToString();
-            priceBox.Text = quote.QuoteAmount.ToString();
+            //shippingBox.Text = quote.ShippingType.ToString();
+            //priceBox.Text = quote.QuoteAmount.ToString();
+
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Desk desk = e.Parameter as Desk;
+
+
+            //nameBox.Text = quote.CustomerName;
+            widthBox.Text = desk.DeskWidth.ToString();
+            depthBox.Text = desk.DeskDepth.ToString();
+            drawersBox.Text = desk.NumDrawer.ToString();
+            materialBox.Text = desk.SurfaceMaterial.ToString();
+            //shippingBox.Text = quote.ShippingType.ToString();
+            //priceBox.Text = quote.QuoteAmount.ToString();
 
         }
 
