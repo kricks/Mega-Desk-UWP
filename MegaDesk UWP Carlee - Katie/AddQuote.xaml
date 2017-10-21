@@ -8,30 +8,25 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="97*"/>
+        </Grid.ColumnDefinitions>
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Add Quote" VerticalAlignment="Top" Margin="366,32,0,0" FontSize="48" IsReadOnly="True"/>
         <TextBox x:Name="TextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter your name :" VerticalAlignment="Top" Margin="92,144,0,0" FontSize="20" IsReadOnly="True"/>
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter width :" VerticalAlignment="Top" Margin="92,264,0,0" FontSize="20" Width="176" IsReadOnly="True"/>
         <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter depth :" VerticalAlignment="Top" Margin="92,372,0,0" FontSize="20" Width="176" IsReadOnly="True"/>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter surface material :" VerticalAlignment="Top" Margin="542,137,0,0" FontSize="20" IsReadOnly="True"/>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter number of drawers :" VerticalAlignment="Top" Margin="525,257,0,0" FontSize="20" IsReadOnly="True"/>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter Number of Shipping Days :" VerticalAlignment="Top" Margin="489,372,0,0" FontSize="20" IsReadOnly="True"/>
-        <StackPanel>
-        <ComboBox x:Name="ComBoxMaterial" HorizontalAlignment="Left" Margin="821,137,0,0" VerticalAlignment="Top" Width="120" PlaceholderText="" SelectionChanged="ComBoxMaterial_SelectionChanged"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter surface material :" VerticalAlignment="Top" Margin="542,137,0,0" FontSize="20" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter number of drawers :" VerticalAlignment="Top" Margin="525,257,0,0" FontSize="20" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter Number of Shipping Days :" VerticalAlignment="Top" Margin="489,372,0,0" FontSize="20" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.ColumnSpan="2">
+            <ComboBox x:Name="ComBoxMaterial" HorizontalAlignment="Left" Margin="821,137,0,0" VerticalAlignment="Top" Width="120" PlaceholderText="" SelectionChanged="ComBoxMaterial_SelectionChanged"/>
             <TextBlock x:Name="ComboResult" Margin="821,30,83,0" />
         </StackPanel>
-        <ComboBox x:Name="ComBoxNumberDrawers" HorizontalAlignment="Left" Margin="821,257,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="0"/>
-            <ComboBoxItem Content="1"/>
-            <ComboBoxItem Content="2"/>
-            <ComboBoxItem Content="3"/>
-            <ComboBoxItem Content="4"/>
-            <ComboBoxItem Content="5"/>
-            <ComboBoxItem Content="6"/>
-            <ComboBoxItem Content="7"/>
-        </ComboBox>
-        <ComboBox x:Name="ComBoxShipping" HorizontalAlignment="Left" Margin="821,372,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComBoxNumberDrawers" HorizontalAlignment="Left" Margin="184.76,257,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComBoxNumberDrawers_SelectionChanged" Grid.Column="1"/>
+        <ComboBox x:Name="ComBoxShipping" HorizontalAlignment="Left" Margin="184.76,372,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComBoxShipping_SelectionChanged" Grid.Column="1"/>
         <TextBox x:Name="txtBoxName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.713" Margin="321,144,0,0" Width="120"/>
-        <Button x:Name="butDisplay" Content="Save &amp; Display Quote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="628,531,0,0" FontSize="24" Click="butDisplay_Click"/>
+        <Button x:Name="butDisplay" Content="Save &amp; Display Quote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="628,531,0,0" FontSize="24" Click="butDisplay_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="butBackMenu" Content="Go Back to Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="177,531,0,0" FontSize="24" Click="butBackMenu_Click"/>
         <TextBox x:Name="txtBoxWidth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,264,0,0" Width="120"/>
         <TextBox x:Name="txtBoxDepth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,372,0,0" Width="120"/>

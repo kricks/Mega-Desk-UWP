@@ -51,7 +51,7 @@ namespace MegaDesk_UWP_Carlee___Katie
         //exit button
         private void butExit_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Exit();
         }
     }
 }

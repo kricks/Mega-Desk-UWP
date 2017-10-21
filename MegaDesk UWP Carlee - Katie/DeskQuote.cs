@@ -12,13 +12,13 @@ namespace MegaDesk_UWP_Carlee___Katie
         //enums
         public enum Shipping
         {
-            [Display(Name = "Three Days")]
+            [Display(Name = "Three Day")]
             Rush3Days,
-            [Display(Name = "Five Days")]
+            [Display(Name = "Five Day")]
             Rush5Days,
-            [Display(Name = "Seven Days")]
+            [Display(Name = "Seven Day")]
             Rush7Days,
-            [Display(Name = "Five Days")]
+            [Display(Name = "Five Day")]
             Normal14Days
         }
 

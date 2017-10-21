@@ -24,39 +24,27 @@ namespace MegaDesk_UWP_Carlee___Katie
     {
         public DisplayQuote()
         {
-            this.InitializeComponent();
-
-            
-        }
-
-        void setValues(Desk desk, DeskQuote quote)
-        {
-
-            //nameBox.Text = quote.CustomerName;
-            widthBox.Text = desk.DeskWidth.ToString();
-            depthBox.Text = desk.DeskDepth.ToString();
-            drawersBox.Text = desk.NumDrawer.ToString();
-            materialBox.Text = desk.SurfaceMaterial.ToString();
-            //shippingBox.Text = quote.ShippingType.ToString();
-            //priceBox.Text = quote.QuoteAmount.ToString();
-
+            this.InitializeComponent();                    
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Desk desk = e.Parameter as Desk;
-
-
-            //nameBox.Text = quote.CustomerName;
-            widthBox.Text = desk.DeskWidth.ToString();
-            depthBox.Text = desk.DeskDepth.ToString();
-            drawersBox.Text = desk.NumDrawer.ToString();
-            materialBox.Text = desk.SurfaceMaterial.ToString();
-            //shippingBox.Text = quote.ShippingType.ToString();
-            //priceBox.Text = quote.QuoteAmount.ToString();
+            //Desk desk = e.Parameter as Desk;
+            DeskQuote quote = e.Parameter as DeskQuote;
+            
+            nameBox.Text = quote.CustomerName;
+            //widthBox.Text = desk.DeskWidth.ToString();
+            //depthBox.Text = desk.DeskDepth.ToString();
+            //drawersBox.Text = desk.NumDrawer.ToString();
+            //materialBox.Text = desk.SurfaceMaterial.ToString();
+            shippingBox.Text = quote.ShippingType.ToString();
+            priceBox.Text = quote.QuoteAmount.ToString();
 
         }
 
-
+        private void homeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }

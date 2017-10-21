@@ -45,60 +45,37 @@ namespace MegaDesk_UWP_Carlee___Katie
                 shipping.Add(rushDays);
 
             ComBoxShipping.ItemsSource = shipping;
+
+            // number of drawers
+            List<int> drawerNumber = new List<int>();
+            drawerNumber.Add(0);
+            drawerNumber.Add(1);
+            drawerNumber.Add(2);
+            drawerNumber.Add(3);
+            drawerNumber.Add(4);
+            drawerNumber.Add(5);
+            drawerNumber.Add(6);
+            drawerNumber.Add(7);
+
+            ComBoxNumberDrawers.ItemsSource = drawerNumber;
         }
 
         Desk desk = new Desk();
+        DeskQuote quote = new DeskQuote();
 
         // but save and display quote
         private void butDisplay_Click(object sender, RoutedEventArgs e)
         {
-            // Instatiate desk object and set values to user input
-            //Desk desk = new Desk();
+            // set desk values to user input
             desk.DeskWidth = float.Parse(txtBoxWidth.Text);
             desk.DeskDepth = float.Parse(txtBoxDepth.Text);
             //desk.NumDrawer = (sender as ComboBox).SelectedItem as string;
 
-            // Instantiate deskQuote and set values to user input
-            DeskQuote quote = new DeskQuote();
+            // set deskQuote values to user input
             quote.CustomerName = txtBoxName.Text;
             quote.desk = desk;
             quote.QuoteDate = DateTime.Now;
-
-            switch (ComBoxMaterial.DataContext)
-            {
-                case "Oak":
-                    desk.SurfaceMaterial = Desk.Material.Oak;
-                    break;
-                case "Laminate":
-                    desk.SurfaceMaterial = Desk.Material.Laminate;
-                    break;
-                case "Pine":
-                    desk.SurfaceMaterial = Desk.Material.Pine;
-                    break;
-                case "Rosewood":
-                    desk.SurfaceMaterial = Desk.Material.Rosewood;
-                    break;
-                case "Veneer":
-                    desk.SurfaceMaterial = Desk.Material.Veneer;
-                    break;
-            }
-                        
-            switch (ComBoxShipping.DataContext)
-            {
-                case "Three Days":
-                    quote.ShippingType = DeskQuote.Shipping.Rush3Days;
-                    break;
-                case "Five Days":
-                    quote.ShippingType = DeskQuote.Shipping.Rush5Days;
-                    break;
-                case "Seven Days":
-                    quote.ShippingType = DeskQuote.Shipping.Rush7Days;
-                    break;
-                case "Normal - Fourteen Days":
-                    quote.ShippingType = DeskQuote.Shipping.Normal14Days;
-                    break;
-            }
-
+                                  
             int drawerPrice = getDrawerPrice(desk.NumDrawer);
             float surfaceArea = getSurfaceArea(desk.DeskWidth, desk.DeskDepth);
             float surfaceAreaPrice = getSurfaceAreaPrice(surfaceArea);
@@ -110,7 +87,7 @@ namespace MegaDesk_UWP_Carlee___Katie
                 orderPrice);
 
             // takes this frame and opens up Display Quote frame and needs to pass parameter addQuote to Display quote frame
-            this.Frame.Navigate(typeof(DisplayQuote), desk);
+            this.Frame.Navigate(typeof(DisplayQuote), quote);
 
         }
 
@@ -177,7 +154,7 @@ namespace MegaDesk_UWP_Carlee___Katie
 
             switch (orderType)
             {
-                case "3 Day":
+                case "Rush3Days":
                     if (surfaceArea < 1000)
                     {
                         cost = 60;
@@ -193,7 +170,7 @@ namespace MegaDesk_UWP_Carlee___Katie
                         cost = 80;
                         return cost;
                     }
-                case "5 Day":
+                case "Rush5Days":
                     if (surfaceArea < 1000)
                     {
                         cost = 40;
@@ -209,7 +186,7 @@ namespace MegaDesk_UWP_Carlee___Katie
                         cost = 60;
                         return cost;
                     }
-                case "7 Day":
+                case "Rush7Days":
                     if (surfaceArea < 1000)
                     {
                         cost = 30;
@@ -228,7 +205,7 @@ namespace MegaDesk_UWP_Carlee___Katie
                 default:
                     cost = 0;
                     return cost;
-            }
+            }       
         }
 
             public float getQuotePrice(int drawerPrice,
@@ -252,19 +229,62 @@ namespace MegaDesk_UWP_Carlee___Katie
 
         }
 
-        private void ComBoxMaterial_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //if (ComboResult == null) return;
-
-            //var combo = (ComboBox)sender;
-            //var item = (ComboBoxItem)combo.SelectedItem;
-            //ComboResult.Text = item.Content.ToString();
-        }
-
         // go back to menu button
         private void butBackMenu_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void ComBoxMaterial_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string material = (sender as ComboBox).SelectedItem.ToString();
+
+            switch (material)
+            {
+                case "Oak":
+                    desk.SurfaceMaterial = Desk.Material.Oak;
+                    break;
+                case "Laminate":
+                    desk.SurfaceMaterial = Desk.Material.Laminate;
+                    break;
+                case "Pine":
+                    desk.SurfaceMaterial = Desk.Material.Pine;
+                    break;
+                case "Rosewood":
+                    desk.SurfaceMaterial = Desk.Material.Rosewood;
+                    break;
+                case "Veneer":
+                    desk.SurfaceMaterial = Desk.Material.Veneer;
+                    break;
+            }
+        }
+
+        private void ComBoxNumberDrawers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string drawers = ComBoxNumberDrawers.SelectedItem.ToString();
+
+            desk.NumDrawer = int.Parse(drawers);
+        }
+
+        private void ComBoxShipping_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string shipping = (sender as ComboBox).SelectedItem.ToString();
+
+            switch (shipping)
+            {
+                case "Rush3Days":
+                    quote.ShippingType = DeskQuote.Shipping.Rush3Days;
+                    break;
+                case "Rush5Days":
+                    quote.ShippingType = DeskQuote.Shipping.Rush5Days;
+                    break;
+                case "Rush7Days":
+                    quote.ShippingType = DeskQuote.Shipping.Rush7Days;
+                    break;
+                case "Normal14Days":
+                    quote.ShippingType = DeskQuote.Shipping.Normal14Days;
+                    break;
+            }
         }
     }
 }
