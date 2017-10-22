@@ -29,16 +29,16 @@ namespace MegaDesk_UWP_Carlee___Katie
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //Desk desk = e.Parameter as Desk;
-            DeskQuote quote = e.Parameter as DeskQuote;
-            
-            nameBox.Text = quote.CustomerName;
-            //widthBox.Text = desk.DeskWidth.ToString();
-            //depthBox.Text = desk.DeskDepth.ToString();
-            //drawersBox.Text = desk.NumDrawer.ToString();
-            //materialBox.Text = desk.SurfaceMaterial.ToString();
-            shippingBox.Text = quote.ShippingType.ToString();
-            priceBox.Text = quote.QuoteAmount.ToString();
+            Desk desk = e.Parameter as Desk;
+            //DeskQuote quote = e.Parameter as DeskQuote;
+
+            nameBox.Text = desk.CustomerName;
+            widthBox.Text = desk.DeskWidth.ToString();
+            depthBox.Text = desk.DeskDepth.ToString();
+            drawersBox.Text = desk.NumDrawer.ToString();
+            materialBox.Text = desk.SurfaceMaterial.ToString();
+            shippingBox.Text = desk.ShippingType.ToString();
+            priceBox.Text = desk.QuoteAmount.ToString();
 
         }
 

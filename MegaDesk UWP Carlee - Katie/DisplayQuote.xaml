@@ -17,7 +17,7 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Drawers:" VerticalAlignment="Top" Margin="389,304,0,0" FontSize="20"/>
         <TextBlock x:Name="widthWarning" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="640,230,0,0" FontStyle="Italic"/>
         <TextBlock x:Name="heightWarning" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="640,297,0,0" FontStyle="Italic"/>
-        <Button x:Name="homeButton" Content="Home" HorizontalAlignment="Left" Margin="475,510,0,0" VerticalAlignment="Top" FontSize="22" Click="homeButton_Click"/>
+        <Button x:Name="homeButton" Content="Home" HorizontalAlignment="Left" Margin="483,510,0,0" VerticalAlignment="Top" FontSize="22" Click="homeButton_Click"/>
         <TextBlock x:Name="pageTitle" HorizontalAlignment="Center" Margin="402,63,372,0" TextWrapping="Wrap" Text="Your Quote" VerticalAlignment="Top" FontSize="48" Width="250"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Material:" VerticalAlignment="Top" Margin="387,349,0,0" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Margin="408,173,0,0" FontSize="20"/>

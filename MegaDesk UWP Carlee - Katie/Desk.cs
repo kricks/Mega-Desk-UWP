@@ -29,16 +29,21 @@ namespace MegaDesk_UWP_Carlee___Katie
         const decimal RUSH_7DAY_1000_TO_2000 = 35.00m;
         const decimal RUSH_7DAY_GREATER_THAN_2000 = 40.00m;
 
-
         //properties of desk
         public float DeskWidth { get; set; }
         public float DeskDepth { get; set; }
         public int NumDrawer { get; set; }
         public Material SurfaceMaterial { get; set; }
+        public DeskQuote quote { get; set; }
+        public Shipping ShippingType { get; set; }
+        public string CustomerName { get; set; }
+        public DateTime QuoteDate { get; set; }
+        public float QuoteAmount { get; set; }
+
         // This is also in DeskQuote, so I removed it here.
         //public int ShippingDays { get; set; }
 
-       public enum Material
+        public enum Material
         {
             Oak,
             Laminate,
@@ -47,6 +52,14 @@ namespace MegaDesk_UWP_Carlee___Katie
             Veneer
         }
 
+        //enums
+        public enum Shipping
+        {
 
+            Rush3Days,
+            Rush5Days,
+            Rush7Days,
+            Normal14Days
+        }
     }
 }

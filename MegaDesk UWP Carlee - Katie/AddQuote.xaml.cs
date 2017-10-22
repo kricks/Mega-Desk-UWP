@@ -25,6 +25,10 @@ namespace MegaDesk_UWP_Carlee___Katie
 
         static int basePrice = 200;
         static int costPerDrawer = 50;
+        const float MAX_WIDTH = 96;
+        const float MIN_WIDTH = 24;
+        const float MAX_HEIGHT = 48;
+        const float MIN_HEIGHT = 12;
 
         public AddQuote()
         {
@@ -39,9 +43,9 @@ namespace MegaDesk_UWP_Carlee___Katie
             ComBoxMaterial.ItemsSource = materials;
 
             // shipping 
-            List<DeskQuote.Shipping> shipping = new List<DeskQuote.Shipping>();
+            List<Desk.Shipping> shipping = new List<Desk.Shipping>();
 
-            foreach (DeskQuote.Shipping rushDays in Enum.GetValues(typeof(DeskQuote.Shipping)))
+            foreach (Desk.Shipping rushDays in Enum.GetValues(typeof(Desk.Shipping)))
                 shipping.Add(rushDays);
 
             ComBoxShipping.ItemsSource = shipping;
@@ -61,33 +65,30 @@ namespace MegaDesk_UWP_Carlee___Katie
         }
 
         Desk desk = new Desk();
-        DeskQuote quote = new DeskQuote();
+        //DeskQuote quote = new DeskQuote();
 
         // but save and display quote
         private void butDisplay_Click(object sender, RoutedEventArgs e)
         {
-            // set desk values to user input
-            desk.DeskWidth = float.Parse(txtBoxWidth.Text);
-            desk.DeskDepth = float.Parse(txtBoxDepth.Text);
-            //desk.NumDrawer = (sender as ComboBox).SelectedItem as string;
 
             // set deskQuote values to user input
-            quote.CustomerName = txtBoxName.Text;
-            quote.desk = desk;
-            quote.QuoteDate = DateTime.Now;
+            desk.CustomerName = txtBoxName.Text;
+            //desk.quote.desk = desk;
+            //desk.quote.QuoteDate = DateTime.Now;
                                   
             int drawerPrice = getDrawerPrice(desk.NumDrawer);
             float surfaceArea = getSurfaceArea(desk.DeskWidth, desk.DeskDepth);
             float surfaceAreaPrice = getSurfaceAreaPrice(surfaceArea);
             int surfaceMaterialPrice = getSurfaceMaterialPrice(desk.SurfaceMaterial.ToString());
-            int orderPrice = getOrderPrice(surfaceArea, quote.ShippingType.ToString());
-            quote.QuoteAmount = getQuotePrice(drawerPrice,
+            int orderPrice = getOrderPrice(surfaceArea, desk.ShippingType.ToString());
+            desk.QuoteAmount = getQuotePrice(
+                drawerPrice,
                 surfaceAreaPrice,
                 surfaceMaterialPrice,
                 orderPrice);
 
             // takes this frame and opens up Display Quote frame and needs to pass parameter addQuote to Display quote frame
-            this.Frame.Navigate(typeof(DisplayQuote), quote);
+            this.Frame.Navigate(typeof(DisplayQuote), desk);
 
         }
 
@@ -226,7 +227,6 @@ namespace MegaDesk_UWP_Carlee___Katie
         {
             string width = (sender as ComboBox).SelectedItem as string;
             desk.DeskWidth = int.Parse(width);
-
         }
 
         // go back to menu button
@@ -273,18 +273,93 @@ namespace MegaDesk_UWP_Carlee___Katie
             switch (shipping)
             {
                 case "Rush3Days":
-                    quote.ShippingType = DeskQuote.Shipping.Rush3Days;
+                    desk.ShippingType = Desk.Shipping.Rush3Days;
                     break;
                 case "Rush5Days":
-                    quote.ShippingType = DeskQuote.Shipping.Rush5Days;
+                    desk.ShippingType = Desk.Shipping.Rush5Days;
                     break;
                 case "Rush7Days":
-                    quote.ShippingType = DeskQuote.Shipping.Rush7Days;
+                    desk.ShippingType = Desk.Shipping.Rush7Days;
                     break;
                 case "Normal14Days":
-                    quote.ShippingType = DeskQuote.Shipping.Normal14Days;
+                    desk.ShippingType = Desk.Shipping.Normal14Days;
                     break;
             }
+        }
+
+        private void txtBoxWidth_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            string widthText = txtBoxWidth.Text;
+
+            try
+            {
+                float width = float.Parse(widthText);
+
+                if ((width >= MIN_WIDTH) && (width <= MAX_WIDTH))
+                {
+                    desk.DeskWidth = width;
+
+                    widthWarning.Text = " ";
+
+                    butDisplay.IsEnabled = true;
+                }
+                else
+                {
+                    widthWarning.Text = "Please enter a value between "
+                    + MIN_WIDTH
+                    + " and "
+                    + MAX_WIDTH;
+
+                    butDisplay.IsEnabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                widthWarning.Text = "Please enter a value between "
+                    + MIN_WIDTH
+                    + " and "
+                    + MAX_WIDTH;
+
+                butDisplay.IsEnabled = false;
+            }            
+        }
+
+        private void txtBoxDepth_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            string depthText = txtBoxDepth.Text;
+
+            try
+            {
+                float depth = float.Parse(depthText);
+
+                if ((depth >= MIN_HEIGHT) && (depth <= MAX_HEIGHT))
+                {
+                    desk.DeskDepth = depth;
+
+                    depthWarning.Text = " ";
+
+                    butDisplay.IsEnabled = true;
+                }
+                else
+                {
+                    depthWarning.Text = "Please enter a value between "
+                    + MIN_HEIGHT
+                    + " and "
+                    + MAX_HEIGHT;
+
+                    butDisplay.IsEnabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                depthWarning.Text = "Please enter a value between "
+                    + MIN_HEIGHT
+                    + " and "
+                    + MAX_HEIGHT;
+
+                butDisplay.IsEnabled = false;
+            }
+
         }
     }
 }

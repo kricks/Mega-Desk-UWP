@@ -28,8 +28,10 @@
         <TextBox x:Name="txtBoxName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.713" Margin="321,144,0,0" Width="120"/>
         <Button x:Name="butDisplay" Content="Save &amp; Display Quote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="628,531,0,0" FontSize="24" Click="butDisplay_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="butBackMenu" Content="Go Back to Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="177,531,0,0" FontSize="24" Click="butBackMenu_Click"/>
-        <TextBox x:Name="txtBoxWidth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,264,0,0" Width="120"/>
-        <TextBox x:Name="txtBoxDepth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,372,0,0" Width="120"/>
+        <TextBox x:Name="txtBoxWidth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,264,0,0" Width="120" KeyUp="txtBoxWidth_KeyUp"/>
+        <TextBox x:Name="txtBoxDepth" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,372,0,0" Width="120" KeyUp="txtBoxDepth_KeyUp"/>
+        <TextBlock x:Name="widthWarning" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,316,0,0" FontStyle="Italic"/>
+        <TextBlock x:Name="depthWarning" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="321,425,0,0" FontStyle="Italic"/>
 
     </Grid>
 </Page>
