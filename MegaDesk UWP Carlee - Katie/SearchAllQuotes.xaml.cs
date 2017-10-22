@@ -26,5 +26,10 @@ namespace MegaDesk_UWP_Carlee___Katie
         {
             this.InitializeComponent();
         }
+
+        private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

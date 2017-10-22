@@ -361,5 +361,24 @@ namespace MegaDesk_UWP_Carlee___Katie
             }
 
         }
+
+        private async void butSave_ClickAsync(object sender, RoutedEventArgs e)
+        {
+
+
+            //WRITE THE TICKET TO A LOCAL DATABASE (txt)//
+
+            //Create the text file to hold the data
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile saveFile = await storageFolder.CreateFileAsync("saveQuote.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+
+            //Write data to the file
+            await Windows.Storage.FileIO.WriteTextAsync(saveFile, "saveQuote.txt");
+
+            //read file
+            string savedQuotes = await Windows.Storage.FileIO.ReadTextAsync(saveFile);
+        }
+
+        //await DeskQuote.writeToFileAsync(DeskQuote);
     }
 }

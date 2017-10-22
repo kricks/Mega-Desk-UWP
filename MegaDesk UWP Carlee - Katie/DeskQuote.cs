@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace MegaDesk_UWP_Carlee___Katie
 {
     class DeskQuote
-    {
-
+    { 
 
         //properties of desk quote
         //public Desk desk { get; set; }

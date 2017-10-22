@@ -8,6 +8,16 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <GridView HorizontalAlignment="Left" Height="458" Margin="51,97,0,0" VerticalAlignment="Top" Width="913" SelectionChanged="GridView_SelectionChanged">
+            <GridViewItem Content="Name" Margin="0" Width="111"/>
+            <GridViewItem Content="Width"/>
+            <GridViewItem Content="Depth"/>
+            <GridViewItem Content="Material"/>
+            <GridViewItem Content="Drawers"/>
+            <GridViewItem Content="Shipping"/>
+            <GridViewItem Content="Date"/>
+            <GridViewItem Content="Price" Margin="0" Width="62"/>
+        </GridView>
 
     </Grid>
 </Page>
